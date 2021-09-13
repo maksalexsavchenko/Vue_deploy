@@ -3,6 +3,8 @@
     <Header/>
     <HeroBlock/>
     <GettingStarted/>
+    <Slider/>
+    <Swiper/>
     <Questions/>
     <FAQ
             v-for="(faq, i) in faqs"
@@ -25,6 +27,7 @@ import Questions from "./components/Questions";
 import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
+import Slider from "./components/Slider";
 
 
 
@@ -38,7 +41,8 @@ export default {
     GettingStarted,
     Questions,
     Contacts,
-    FAQ
+    FAQ,
+    Slider,
 
 
   },
@@ -99,6 +103,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+  @import "./styles/app.scss";
+
   @font-face {
     font-family: Montserrat;
     src: local("Montserrat"),
