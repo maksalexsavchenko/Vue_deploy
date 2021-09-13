@@ -1,4 +1,2 @@
 module.exports = {
-
-    publicPath: '/vue-test/'
-};
+    publicPath: ''}

@@ -1,15 +1,29 @@
 <template>
+
     <div class="questions_block">
-        Questions
+        <div class="container">
+            <h1>Frequently asked <br>
+                <strong>questions</strong></h1>
+        </div>
     </div>
 </template>
 
 <script>
+
     export default {
-        name: "Questions"
+        name: "Questions",
+        props: {
+            data: String,
+            msg: String
+        },
+        methods: {
+
+        }
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    .questions_block{
+        padding-bottom: 68px;
+    }
 </style>

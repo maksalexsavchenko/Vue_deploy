@@ -2,7 +2,7 @@
     <div class="hero_block">
         <div class="container">
             <div class="text_block">
-                <h1 class="title">Trade everywhere.
+                <h1 class="title">Trade everywhere. <br>
                     Invest here!
                 </h1>
                 <p class="text">We provide only the best trading software.
@@ -30,10 +30,8 @@
 
     .hero_block{
         background: #EFEDFF;
-        @media (min-width: 992px){
-            padding: 100px 0;
-        }
-        @media (min-width: 992px){
+        padding: 180px 0 100px 0;
+        @media (max-width: 992px){
             padding: 40px 0;
         }
         .container{
