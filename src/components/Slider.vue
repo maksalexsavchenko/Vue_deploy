@@ -92,6 +92,10 @@
                 slickOptions: {
                     slidesToShow: 1,
                     arrows: false,
+                    fade: true,
+                    autoplay: true,
+                    autoplaySpeed: 4000,
+                    infinite: true
                 },
             };
         },
