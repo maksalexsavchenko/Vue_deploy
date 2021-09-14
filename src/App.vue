@@ -4,16 +4,17 @@
     <HeroBlock/>
     <GettingStarted/>
     <Slider/>
-    <Swiper/>
     <Questions/>
-    <FAQ
-            v-for="(faq, i) in faqs"
-            :faq="faq"
-            :index="i"
-            :key="i"
-            :open="faq.open"
-            @toggleOpen="toggleOpen"
-    />
+    <div class="container">
+      <FAQ
+              v-for="(faq, i) in faqs"
+              :faq="faq"
+              :index="i"
+              :key="i"
+              :open="faq.open"
+              @toggleOpen="toggleOpen"
+      />
+    </div>
     <Contacts/>
     <Footer/>
   </div>
@@ -124,10 +125,12 @@ body{
   position: relative;
 }
   .container {
-    width: 100%;
+    max-width: 100%;
     position: relative;
-    max-width: 1200px;
     margin: 0 auto;
+    @media (min-width: 1300px){
+      width: 1200px;
+    }
     @media (max-width: 1300px){
       padding: 0 40px;
     }
@@ -142,11 +145,15 @@ body{
     strong{
       background: #EFEDFF;
     }
+    @media (max-width: 600px){
+      font-size: 40px;
+    }
   }
   p{
     font-family: Montserrat;
     font-size: 18px;
     color: #333333;
+    line-height: 27px;
   }
 
   .btn{
@@ -166,59 +173,5 @@ body{
     }
   }
 
-  .faq {
-    display: block;
-    width: 100%;
-    max-width: 768px;
-    margin: 15px auto;
-    padding: 33px 40px;
-    border: 2px solid #6248FF;
-    border-radius: 20px;
-
-    background-color: #FFF;
-  }
-  .faq .question {
-    position: relative;
-    color: #4F4F4F;
-    font-family: "Museo Sans Cyrl";
-    font-size: 24px;
-    transition: all 0.4s linear;
-  }
-  .faq .question::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    transform: translateY(-50%) rotate(0deg);
-    width: 18px;
-    height: 18px;
-    background-image: url('./assets/images/listimg.svg');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: all 0.3s linear;
-  }
-  .faq.open .question {
-    margin-bottom: 15px;
-  }
-  .faq.open .question::after {
-    transform: translateY(-50%) rotate(45deg);
-    opacity: 0.5;
-  }
-  .faq .answer {
-    color: #4F4F4F;
-    font-weight: 300;
-    font-family: Montserrat;
-    font-size: 16px;
-    opacity: 0;
-    max-height: 0px;
-    overflow-y: hidden;
-    transition: all 0.4s ease-out;
-    line-height: 27px;
-  }
-  .faq.open .answer {
-    opacity: 1;
-    max-height: 1000px;
-  }
 
 </style>

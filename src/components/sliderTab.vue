@@ -1,54 +1,53 @@
 <template>
-    <div class="slider">
-        <div class="container">
-            <sliderTab/>
-            <sliderMob/>
-            <div class="slider_block">
+            <div class="slider_block_tab">
                 <div class="title">
                     <h1>People love <br><strong>Big Invest</strong></h1>
+
+                </div>
+                <div class="slider-content">
                     <div class="arrows">
                         <div class="arrow-prev"
                              v-on:click="prev">
                             <arrowLeft/>
                         </div>
+                    </div>
+
+                    <div class="article_block_tab">
+                        <div class="content">
+                            <Slick class="articles" ref="slick" :options="slickOptions" @afterChange="handleAfterChange">
+                                <div class="slick-item article" v-if="slides" v-for="item in slides">
+                                    <img :src="item.image" alt="">
+                                    <h3 class="author">{{item.name}}</h3>
+                                    <p class="department">{{item.department}}</p>
+                                    <articles/>
+                                    <div class="article_text">
+                                        <h3>{{item.desc}}</h3>
+                                    </div>
+                                </div>
+                            </Slick>
+                            <span class="pagination"><strong>{{currentSlide}}</strong> / {{slides.length}}</span>
+                        </div>
+                    </div>
+                    <div class="arrows">
                         <div class="arrow-next"
                              v-on:click="next">
                             <arrowRight/>
                         </div>
                     </div>
-                </div>
-                <div class="article_block">
-                    <articles/>
-                    <div class="content">
-                        <Slick class="articles" ref="slick" :options="slickOptions" @afterChange="handleAfterChange">
-                            <div class="slick-item article" v-if="slides" v-for="item in slides">
-                                <div class="author-info">
-                                    <div class="avatar">
-                                        <img :src="item.image" alt="">
-                                    </div>
-                                    <div class="author-info-bio">
-                                        <h3 class="author">{{item.name}}</h3>
-                                        <p class="department">{{item.department}}</p>
-                                    </div>
-                                </div>
 
-                                <div class="article_text">
-                                    <h3>{{item.desc}}</h3>
-                                </div>
-                            </div>
-                        </Slick>
-                        <span class="pagination"><strong>{{currentSlide}}</strong> / {{slides.length}}</span>
-                    </div>
                 </div>
 
             </div>
+<!--arrows-->
+<!--    <div class="arrows">-->
 
-<!--            <button type="button" v-on:click="next" class="slick-next">Text</button>-->
-<!--            <button type="button"  class="slick-next">Text</button>-->
 
+<!--    </div>-->
+<!--arrows-->
 
-        </div>
-    </div>
+<!--    content-->
+
+<!--    content-->
 
 </template>
 
@@ -57,8 +56,7 @@
     import ArrowLeft from "./icons/arrowLeft";
     import ArrowRight from "./icons/arrowRight";
     import Articles from "./icons/articles";
-    import SliderTab from "./sliderTab";
-    import SliderMob from "./sliderMob";
+
 
 
     export default {
@@ -68,8 +66,6 @@
             ArrowRight,
             Articles,
             Slick,
-            SliderTab,
-            SliderMob
         },
         data() {
             return {
@@ -92,7 +88,7 @@
                 slickOptions: {
                     slidesToShow: 1,
                     arrows: false,
-                    fade: true,
+                    fade:true,
                     autoplay: true,
                     autoplaySpeed: 4000,
                     infinite: true
@@ -116,17 +112,23 @@
 </script>
 
 <style lang="scss">
-    .slider{
-        .container{
-            .slider_block{
-                display: flex;
-                flex-direction: row;
+            .slider_block_tab{
+                display: none;
+                flex-direction: column;
                 justify-content: space-between;
                 padding: 140px 0;
                 @media (max-width: 1200px) {
+                    display: flex;
+                }
+                @media (max-width: 800px) {
                     display: none;
                 }
-                .title{
+
+                .slider-content{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
                     .arrows{
                         display: flex;
                         flex-direction: row;
@@ -154,17 +156,15 @@
                         }
                     }
                 }
-                .article_block{
-                    margin-top: 27px;
-                    margin-left: 15px;
+
+                .title{
+
+                }
+                .article_block_tab{
                     display: flex;
                     flex-direction: row;
-                    .article-icon{
-                        @media (min-width: 1200px) {
-                            max-height: 40px;
-                            margin-top: 100px;
-                            margin-right: 20px;
-                        }
+                    .content{
+                        text-align: center;
 
                     }
                     .articles{
@@ -172,31 +172,25 @@
                         .article{
                             display: flex!important;
                             flex-direction: column;
-                            .author-info{
-                                display: flex;
-                                flex-direction: row;
-                                .avatar{
-                                    margin-right: 30px;
-                                }
-                                &-bio{
-                                    .author{
-                                        margin: 0;
-                                        line-height: 30px;
-                                        font-size: 18px;
-                                    }
-                                    .department{
-                                        margin: 0;
-                                        font-size: 16px;
-                                        line-height: 27px;
-                                    }
-                                }
+                            align-items: center;
+                            .author{
+                                margin: 0;
+                                line-height: 30px;
+                                font-size: 18px;
+                            }
+                            .department{
+                                margin: 0 0 16px;
+                                font-size: 16px;
+                                line-height: 27px;
 
                             }
-
                             &_text{
                                 font-size: 24px;
-                            }
 
+                                h3 {
+                                    margin: 16px 0 32px 0;
+                                }
+                            }
                         }
 
                     }
@@ -204,6 +198,7 @@
                         font-weight: 600;
                         font-size: 15px;
                         color: #4F62F6;
+                        text-align: center;
                         strong{
                             color: #6248FF;
                             font-weight: 600;
@@ -212,8 +207,6 @@
                     }
                 }
             }
-        }
-    }
 
 
 </style>

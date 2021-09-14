@@ -48,6 +48,9 @@
 <style lang="scss">
     .footer_block{
         padding: 32px 0 72px;
+        @media (max-width: 1200px){
+            padding: 0 0 72px 0;
+        }
         .container{
             display: flex;
             flex-direction: column;
@@ -55,27 +58,85 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                .logo{
+                margin-bottom: 46px;
+                @media (max-width: 1200px) {
+                    flex-direction: column;
+                    align-items: center;
+                }
 
+                .logo{
+                    margin-right: 100px;
+                    @media (max-width: 1200px) {
+                        order: 1;
+                        text-align: center;
+                        margin-right: 0;
+                        padding: 62px 0 54px 0;
+                    }
                 }
                 .info{
+                    max-width: 380px;
+                    @media (max-width: 1200px) {
+                        order: 3;
 
+                        max-width: 508px;
+                    }
+                    h4{
+                        margin-top: 0;
+                        font-size: 18px;
+                        @media (max-width: 1200px) {
+                            text-align: center;
+                        }
+                    }
+                    p{
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 27px;
+                        color: #4F4F4F;
+
+
+                    }
                 }
                 .nav_menu{
+                    @media (max-width: 1200px) {
+                        order: 2;
+                        width: 100%;
+                        padding-bottom: 40px;
+                    }
                     ul{
                         padding: 0;
                         list-style: none;
+                        margin: 0;
+                        @media (max-width: 1200px) {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            justify-content: space-around;
+                        }
+                        @media (max-width: 600px){
+                            flex-direction: column;
+                        }
                         li{
                             padding-bottom: 24px;
                             &:last-child{
                                 padding-bottom: 0;
+                                @media (max-width: 600px){
+                                    padding-bottom: 0;
+                                }
                             }
+                            @media (max-width: 1200px){
+                                padding: 0;
+                            }
+                            @media (max-width: 600px){
+                                padding-bottom: 32px;
+                            }
+
                             a{
                                 font-family: "Museo Sans Cyrl";
                                 text-decoration: none;
                                 font-size: 15px;
                                 color: #333333;
                                 transition: 0.3s;
+                                font-weight: 600;
 
                                 &:hover{
                                     color: #4F62F6;
@@ -97,7 +158,18 @@
                     flex-direction: row;
                     justify-content: space-between;
                     padding-left: 0;
+                    @media (max-width: 1200px){
+                        flex-direction: column;
+                        text-align: center;
+                        margin: 0;
+                    }
                     li{
+                        @media (max-width: 1200px){
+                            padding-bottom: 16px;
+                            &:last-child{
+                                padding-bottom: 0;
+                            }
+                        }
                         a{
                             text-decoration: none;
                             font-family: 'Montserrat';
@@ -112,6 +184,9 @@
                     };
                     li:first-child{
                         padding-right: 66px;
+                        @media (max-width: 1200px){
+                            padding-right: 0;
+                        }
                     }
                 }
             }
