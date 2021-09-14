@@ -16,8 +16,8 @@
                         <div class="content">
                             <Slick class="articles" ref="slick" :options="slickOptions" @afterChange="handleAfterChange">
                                 <div class="slick-item article" v-if="slides" v-for="item in slides">
-                                    <h3 class="author">{{item.name}}</h3>
                                     <img :src="item.image" alt="">
+                                    <h3 class="author">{{item.name}}</h3>
                                     <p class="department">{{item.department}}</p>
                                     <articles/>
                                     <div class="article_text">
@@ -75,14 +75,14 @@
                         name : 'Albert Abello',
                         department: 'Director of Growth',
                         desc: 'This magical product actually works! It has radically changed the way we build our audiences. Increasing new customer sales by 6x in our most mature market.',
-                        image: './src/assets/images/heroimg.svg',
+                        image: require('@/assets/Author.png'),
 
                     },
                     {
                         name : 'Abello Albert ',
                         department: 'Director of Growth',
                         desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
-                        image: '',
+                        image: require('@/assets/Author.png'),
                     }
                 ],
                 slickOptions: {

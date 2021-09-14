@@ -22,9 +22,16 @@
                     <div class="content">
                         <Slick class="articles" ref="slick" :options="slickOptions" @afterChange="handleAfterChange">
                             <div class="slick-item article" v-if="slides" v-for="item in slides">
-                                <h3 class="author">{{item.name}}</h3>
-                                <img :src="item.image" alt="">
-                                <p class="department">{{item.department}}</p>
+                                <div class="author-info">
+                                    <div class="avatar">
+                                        <img :src="item.image" alt="">
+                                    </div>
+                                    <div class="author-info-bio">
+                                        <h3 class="author">{{item.name}}</h3>
+                                        <p class="department">{{item.department}}</p>
+                                    </div>
+                                </div>
+
                                 <div class="article_text">
                                     <h3>{{item.desc}}</h3>
                                 </div>
@@ -72,14 +79,14 @@
                         name : 'Albert Abello',
                         department: 'Director of Growth',
                         desc: 'This magical product actually works! It has radically changed the way we build our audiences. Increasing new customer sales by 6x in our most mature market.',
-                        image: './src/assets/images/heroimg.svg',
+                        image: require('@/assets/Author.png'),
 
                     },
                     {
                         name : 'Abello Albert ',
                         department: 'Director of Growth',
                         desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
-                        image: '',
+                        image: require('@/assets/Author.png'),
                     }
                 ],
                 slickOptions: {
@@ -148,24 +155,44 @@
                     margin-left: 15px;
                     display: flex;
                     flex-direction: row;
+                    .article-icon{
+                        @media (min-width: 1200px) {
+                            max-height: 40px;
+                            margin-top: 100px;
+                            margin-right: 20px;
+                        }
+
+                    }
                     .articles{
                         max-width: 633px;
                         .article{
                             display: flex!important;
                             flex-direction: column;
-                            .author{
-                                margin: 0;
-                                line-height: 30px;
-                                font-size: 18px;
+                            .author-info{
+                                display: flex;
+                                flex-direction: row;
+                                .avatar{
+                                    margin-right: 30px;
+                                }
+                                &-bio{
+                                    .author{
+                                        margin: 0;
+                                        line-height: 30px;
+                                        font-size: 18px;
+                                    }
+                                    .department{
+                                        margin: 0;
+                                        font-size: 16px;
+                                        line-height: 27px;
+                                    }
+                                }
+
                             }
-                            .department{
-                                margin: 0;
-                                font-size: 16px;
-                                line-height: 27px;
-                            }
+
                             &_text{
                                 font-size: 24px;
                             }
+
                         }
 
                     }
