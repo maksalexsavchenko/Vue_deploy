@@ -25,5 +25,8 @@
 <style lang="scss">
     .questions_block{
         padding-bottom: 68px;
+        @media (max-width: 600px) {
+            padding-bottom: 30px;
+        }
     }
 </style>
